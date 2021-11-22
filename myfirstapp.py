@@ -20,7 +20,7 @@ st.sidebar.write("Body Mass Index or BMI refers to  defined as a person’s weig
 st.sidebar.header("Precaution")
 st.sidebar.write("BMI screens for weight categories that may lead to health problems, but it does not diagnose the body fatness or health of an individual")
 
-data = {'BMI': ['Below 18','18 - 25', '25 - 30'],'Classification': ['Underweight','Normal', 'Overweight'] }
+data = {'BMI': ['Below 18.5','18.5 - 24.9', '25 - 29.9', '30 - 34.9', '35 and above'],'Classification': ['Underweight','Normal', 'Overweight', 'Obese', 'Extremely obese'] }
 df = pd.DataFrame(data)
 st.sidebar.header("BMI Classification")
 st.sidebar.write(df)
@@ -47,10 +47,10 @@ elif option=='Female':
     st.plotly_chart(fig)
 
 
-age = st.slider('age', 18, 100, 40)
+age = st.slider('age', 18, 60, 30)
 gender = st.radio ("gender:", ('Male','Female'))
-Weight = st.number_input ("Weight (in kg):",min_value=1.0)
-Height = st.number_input ("Height (in m):",min_value=1.0)
+Weight = st.number_input ("Please enter your weight (in kg):",min_value=1.0)
+Height = st.number_input ("Please enter your height (in m):",min_value=1.0)
 BMI = Weight / (Height ** 2)
 
 def user_input_features():
@@ -80,12 +80,14 @@ if(st.button("Calculate")):
 
     st.text("Your BMI is " + str(round(BMI)))
 
-    if (BMI < 18):
+    if (BMI < 18.5):
         st.warning ("Underweight")
-    if (BMI >= 18 and BMI < 25):
+    if (BMI >= 18.5 and BMI < 25):
         st.success ("Underweight")
     if (BMI >= 25 and BMI < 30):
         st.warning ("Overweight")
-    elif (BMI >= 30):
+    if (BMI >= 30 and BMI < 35):
         st.error ("Obese")
+    elif (BMI >= 35):
+        st.error ("Extremely Obese")
 

@@ -34,16 +34,17 @@ if option=='Male':
     Age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
     fig = go.Figure([go.Bar(x=Age, y=[21.75, 24.43, 25.62, 25.77, 25.61])])
     fig.show()
-    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)', xaxis_title="X Axis Title",
-    yaxis_title="Y Axis Title")
-    st.plotly_chart(fig, caption='Mean BMI of Men in Malaysia')
+    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)', xaxis_title="Age Group",
+    yaxis_title="Mean BMI")
+    st.plotly_chart(fig)
 
 
 elif option=='Female':
     Age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
     fig = go.Figure([go.Bar(x=Age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
     fig.show()
-    fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)')
+    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)', xaxis_title="Age Group",
+    yaxis_title="Mean BMI")
     st.plotly_chart(fig)
 
 

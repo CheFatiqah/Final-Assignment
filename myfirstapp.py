@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import time
 
 
-st.header("Body Mass Index (BMI) Calculator")
+st.header("Body Mass Index Calculator")
 
 from PIL import Image
 image = Image.open('bmi.jpg')

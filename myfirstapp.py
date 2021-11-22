@@ -1,23 +1,16 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-import plotly as px
+import plotly.express as px
+import plotly.graph_objects as go
+import time
+
 
 st.header("Body Mass Index (BMI) Calculator")
 
 from PIL import Image
 image = Image.open('bmi.jpg')
 st.image(image, caption='Body mass index')
-
-df = pd.DataFrame(
-    [["Product A", 5.6, 7.8, 5], ["Product B", 5.8, 7.2, 4.9]],
-    columns=["Product", "Comfort", "Sound", "Calls"]
-)
-
-fig = px.bar(df, x="Product", y=["Comfort", "Sound", "Calls"], barmode='group', height=400)
-# st.dataframe(df) # if need to display dataframe
-st.plotly_chart(fig)
-
 
 st.write("This app calculate BMI for adult (age 18 years and above only)")
 
@@ -31,6 +24,28 @@ data = {'BMI': ['Below 18','18 - 25', '25 - 30'],'Classification': ['Underweight
 df = pd.DataFrame(data)
 st.sidebar.header("BMI Classification")
 st.sidebar.write(df)
+
+
+option = st.selectbox(
+    'Select gender',
+     ['Male','Female'])
+
+if option=='Male':
+
+    age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
+    fig = go.Figure([go.Bar(x=age, y=[21.75, 24.43, 25.62, 25.77, 25.61])])
+    fig.show()
+    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)')
+    st.plotly_chart(fig, caption='Mean BMI of Men in Malaysia')
+
+
+elif option=='Female':
+    age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
+    fig = go.Figure([go.Bar(x=age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
+    fig.show()
+    fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)')
+    st.plotly_chart(fig)
+
 
 age = st.slider('age', 18, 100, 40)
 gender = st.radio ("gender:", ('Male','Female'))
@@ -51,6 +66,18 @@ st.subheader('User Information')
 st.write(df)
    
 if(st.button("Calculate")):
+  
+    latest_iteration = st.empty()
+    bar = st.progress(0)
+
+    for i in range(100):
+   
+        latest_iteration.text(f'Calculating {i+1}')
+        bar.progress(i + 1)
+        time.sleep(0.1)
+
+    '...and now we\'re done!'
+
     st.text("Your BMI is " + str(round(BMI)))
 
     if (BMI < 18):

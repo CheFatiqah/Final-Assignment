@@ -1,12 +1,22 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import plotly.express as px
 
 st.header("Body Mass Index (BMI) Calculator")
 
 from PIL import Image
 image = Image.open('bmi.jpg')
 st.image(image, caption='Body mass index')
+
+df = pd.DataFrame(
+    [["Product A", 5.6, 7.8, 5], ["Product B", 5.8, 7.2, 4.9]],
+    columns=["Product", "Comfort", "Sound", "Calls"]
+)
+
+fig = px.bar(df, x="Product", y=["Comfort", "Sound", "Calls"], barmode='group', height=400)
+# st.dataframe(df) # if need to display dataframe
+st.plotly_chart(fig)
 
 
 st.write("This app calculate BMI for adult (age 18 years and above only)")

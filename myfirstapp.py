@@ -84,7 +84,7 @@ if(st.button("Calculate")):
     if (BMI < 18.5):
         st.warning ("Underweight")
     if (BMI >= 18.5 and BMI < 25):
-        st.success ("Underweight")
+        st.success ("Normal")
     if (BMI >= 25 and BMI < 30):
         st.warning ("Overweight")
     if (BMI >= 30 and BMI < 35):

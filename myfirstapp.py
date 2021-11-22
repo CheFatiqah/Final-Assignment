@@ -34,7 +34,8 @@ if option=='Male':
     Age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
     fig = go.Figure([go.Bar(x=Age, y=[21.75, 24.43, 25.62, 25.77, 25.61])])
     fig.show()
-    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)')
+    fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)', xaxis_title="X Axis Title",
+    yaxis_title="Y Axis Title")
     st.plotly_chart(fig, caption='Mean BMI of Men in Malaysia')
 
 

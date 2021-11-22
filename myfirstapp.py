@@ -18,7 +18,7 @@ st.sidebar.header("Body Mass Index")
 st.sidebar.write("Body Mass Index or BMI refers to  defined as a person’s weight in kilograms divided by the square of the person’s height in metres")
 
 st.sidebar.header("Precaution")
-st.sidebar.write("BMI screens for weight categories that may lead to health problems, but it does not diagnose the body fatness or health of an individual")
+st.sidebar.write("BMI screens for weight categories that may lead to health problems, but it does not diagnose the body fatness or health of an individual. Other health screening is needed to determine the health status of an individual")
 
 data = {'BMI': ['Below 18.5','18.5 - 24.9', '25 - 29.9', '30 - 34.9', '35 and above'],'Classification': ['Underweight','Normal', 'Overweight', 'Obese', 'Extremely obese'] }
 df = pd.DataFrame(data)
@@ -44,6 +44,7 @@ elif option=='Female':
     fig = go.Figure([go.Bar(x=age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
     fig.show()
     fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)')
+    fig.update_layout(x='Age Group')
     st.plotly_chart(fig)
 
 

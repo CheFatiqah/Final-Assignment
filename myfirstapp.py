@@ -4,9 +4,6 @@ import pandas as pd
 
 st.header("Body Mass Index (BMI) Calculator")
 
-from PIL import Image
-image = Image.open('bmi.jpg')
-st.image(image, caption='Body mass index')
 
 st.write("This app calculate BMI for adult (age 18 years and above only)")
 

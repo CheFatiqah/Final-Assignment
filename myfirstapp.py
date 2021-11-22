@@ -91,3 +91,6 @@ if(st.button("Calculate")):
     elif (BMI >= 35):
         st.error ("Extremely Obese")
 
+st.write("Thank you for using this BMI Calculator")
+
+st.write("Stay Safe and Stay Healthy")

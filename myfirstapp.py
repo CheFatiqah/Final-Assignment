@@ -32,30 +32,30 @@ option = st.selectbox(
 
 if option=='Male':
 
-    age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
-    fig = go.Figure([go.Bar(x=age, y=[21.75, 24.43, 25.62, 25.77, 25.61])])
+    Age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
+    fig = go.Figure([go.Bar(x=Age, y=[21.75, 24.43, 25.62, 25.77, 25.61])])
     fig.show()
     fig.update_layout(title='Mean BMI of Men in Malaysia , (*National Health and Morbidity Survey 2014*)')
     st.plotly_chart(fig, caption='Mean BMI of Men in Malaysia')
 
 
 elif option=='Female':
-    age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
-    fig = go.Figure([go.Bar(x=age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
+    Age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
+    fig = go.Figure([go.Bar(x=Age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
     fig.show()
     fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)')
     st.plotly_chart(fig)
 
 
-age = st.slider('age', 18, 60, 30)
-gender = st.radio ("gender:", ('Male','Female'))
+Age = st.slider('age', 18, 60, 30)
+Gender = st.radio ("gender:", ('Male','Female'))
 Weight = st.number_input ("Please enter your weight (in kg):",min_value=1.0)
 Height = st.number_input ("Please enter your height (in m):",min_value=1.0)
 BMI = Weight / (Height ** 2)
 
 def user_input_features():
-    data = {'age': age,
-            'gender': gender,
+    data = {'age': Age,
+            'gender': Gender,
             'Weight': Weight,
             'Height': Height}
     features = pd.DataFrame(data, index=[0])

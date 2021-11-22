@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-st.header("Body Mass Index (BMI) Calculator")
+st.header("Bocdy Mass Index (BMI) Calculator")
 
 
 st.write("This app calculate BMI for adult (age 18 years and above only)")

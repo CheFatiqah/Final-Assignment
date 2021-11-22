@@ -43,8 +43,7 @@ elif option=='Female':
     age = ['18-19', '20-29', '30-39','40-49', '50-59' ]
     fig = go.Figure([go.Bar(x=age, y=[22.95, 24.92, 26.40, 27.07, 27.13])])
     fig.show()
-    fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)')
-    fig.update_layout(x='Age Group')
+    fig.update_layout(title='Mean BMI of Women in Malaysia , (*National Health and Morbidity Survey 2014*)', x='Age Group')
     st.plotly_chart(fig)
 
 

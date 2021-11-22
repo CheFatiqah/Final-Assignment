@@ -46,15 +46,15 @@ elif option=='Female':
     st.plotly_chart(fig)
 
 
-Age = st.slider('age', 18, 60, 30)
-Gender = st.radio ("gender:", ('Male','Female'))
+Age = st.slider('Age', 18, 60, 30)
+Gender = st.radio ("Gender:", ('Male','Female'))
 Weight = st.number_input ("Please enter your weight (in kg):",min_value=1.0)
 Height = st.number_input ("Please enter your height (in m):",min_value=1.0)
 BMI = Weight / (Height ** 2)
 
 def user_input_features():
-    data = {'age': Age,
-            'gender': Gender,
+    data = {'Age': Age,
+            'Gender': Gender,
             'Weight': Weight,
             'Height': Height}
     features = pd.DataFrame(data, index=[0])
